@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 Then you can start the program simply by running the command below.
 ```
-python .\main.py
+python main.py
 ```
 *Note that this assumes that `python` and `pip` are already saved in PATH and correspond to the correct Python3 .exe files*
 
