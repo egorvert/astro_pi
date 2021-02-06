@@ -16,6 +16,9 @@ class Controller:
 		self.light_matrix = MatrixController(self)
 
 	def begin_experiment(self):
+		"""
+			Begins the experiment
+		"""
 		print('Ooga booga im in space')
 
 if __name__ == '__main__':

@@ -12,8 +12,11 @@ python main.py
 ```
 *Note that this assumes that `python` and `pip` are already saved in PATH and correspond to the correct Python3 .exe files*
 
-## Python Files
-The code for this project is split into separate files that manage a certain aspect of the program.
-These mini-modules are connected together via references in a main `Controller` class, which manages the top level structure and operation of the program.
+## Documentation Development
+The code for this project is documented using [Sphynx](https://www.sphinx-doc.org/). This autogenerates documentation for the project by collating the docstrings of classes and functions in the code and formatting it into a dynamic web page. This can be found in the `docs/` folder.
 
-On submition, the code should be compiled to one file; the code itself should not have to be modified.
+To rebuild the documentation run the following command.
+```
+.\docs\make.bat html
+```
+The home page of the documentation is `docs/_build/html/index.html`.

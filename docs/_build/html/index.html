@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Wellington College Astro Pi Docs &mdash; Wellington College Astro Pi Docs</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Accelerometer" href="accelerometer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Wellington College Astro Pi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Wellington College Astro Pi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Wellington College Astro Pi Docs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wellington-college-astro-pi-docs">
+<h1>Wellington College Astro Pi Docs<a class="headerlink" href="#wellington-college-astro-pi-docs" title="Permalink to this headline">¶</a></h1>
+<p>The code for this project is split into separate files that manage a certain aspect of the program.
+These components are connected together via references in a main <cite>Controller</cite> class, which manages the top level structure and operation of the program.</p>
+<p>On submition, the code should be compiled to one file; the code itself should not have to be modified.</p>
+<p><a class="reference external" href="https://github.com/Melon-Bowl/astro_pi">See the code for the project here</a></p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+</ul>
+</div>
+<div class="section" id="module-main">
+<span id="main-controller"></span><h2>Main Controller<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="main.Controller">
+<em class="property">class </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">Controller</code><a class="headerlink" href="#main.Controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controller for top-level management of the experiment</p>
+<p>It separates out the smaller modules and gives them access to other modules
+Only big-picture experiment administration should be put here</p>
+<dl class="py method">
+<dt id="main.Controller.begin_experiment">
+<code class="sig-name descname">begin_experiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Controller.begin_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Begins the experiment</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="accelerometer.html" class="btn btn-neutral float-right" title="Accelerometer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adam Heal, Gregor Maclaine, Stepan Mikoyan, Ben Nason, Egor Vert, Yichen Xu.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
