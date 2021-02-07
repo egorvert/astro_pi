@@ -2,7 +2,7 @@
 
 pushd %~dp0
 
-if not exist "_build" md _build
+if not exist "build" md build
 if not exist "_static" md _static
 
 REM Command file for Sphinx documentation
@@ -11,7 +11,7 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=.
-set BUILDDIR=_build
+set BUILDDIR=build
 
 if "%1" == "" goto help
 
@@ -29,6 +29,7 @@ if errorlevel 9009 (
 )
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+python rename_static.py
 goto end
 
 :help

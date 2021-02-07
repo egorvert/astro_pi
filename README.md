@@ -1,6 +1,8 @@
 # Astro Pi Competition
 Code for the astro-pi competition written in Python3 by team underscore.
 
+For a more detailed reference on the code itself see the [documentation](https://melon-bowl.github.io/astro_pi/build/html/index.html).
+
 ## Use
 To run the program, you must first ensure that you have the correct dependencies installed. A list of these is stored in the file `requirements.txt` in the root directoy. To download these run the following command.
 ```
