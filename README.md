@@ -21,4 +21,4 @@ To rebuild the documentation run the following command.
 ```
 .\docs\make.bat html
 ```
-The home page of the documentation is `docs/_build/html/index.html`.
+The home page of the documentation is `docs/build/html/index.html`.
