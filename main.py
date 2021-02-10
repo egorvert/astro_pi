@@ -1,7 +1,8 @@
-from src.output import OutputController
 from src.accelerometer import AccelerometerController
+from src.camera import CameraController
 from src.gyroscope import GyroscopeController
 from src.light_matrix import MatrixController
+from src.output import OutputController
 
 
 class Controller:
@@ -12,6 +13,7 @@ class Controller:
   """
   def __init__(self):
     self.output = OutputController(self)
+    self.camera = CameraController(self)
     self.accelerometer = AccelerometerController(self)
     self.gyroscope = GyroscopeController(self)
     self.light_matrix = MatrixController(self)

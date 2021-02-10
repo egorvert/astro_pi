@@ -2,8 +2,11 @@
 from pathlib import Path
 
 dir_path = Path(__file__).parent.resolve()
-data_file = dir_path/'data.csv'
+data_file = f'{dir_path}\data.csv'
+
+
 class OutputController:
+  FILEPATH = 'data.csv'
   """
     Controller that manages data collected being saved to local files\n
     Data should be saved on collection such that an unexpected error will
@@ -22,5 +25,3 @@ class OutputController:
       :param data: Data to record
     """
     pass
-
-  
