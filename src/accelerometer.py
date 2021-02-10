@@ -1,6 +1,7 @@
 # Greg and Alan
+from metric import MetricController
 
-class AccelerometerController:
+class AccelerometerController(MetricController):
   """
     Controller for methods and data related to the accelerometer
 

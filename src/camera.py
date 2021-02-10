@@ -1,6 +1,6 @@
 # Egor and Stepan
-
-class CameraController:
+from metric import MetricController
+class CameraController(MetricController):
   """
     Controller for methods and data related to the light sensor/camera.
     
@@ -9,3 +9,6 @@ class CameraController:
   """
   def __init__(self, con):
     self.con = con
+
+  def recordResults(self):
+      pass

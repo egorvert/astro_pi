@@ -19,6 +19,12 @@ class Controller:
   def begin_experiment(self):
     """
       Begins the experiment
+
+      Measure accelerometer, 
+      Meaure gyroscope,
+      Meaure light sensor,
+      Update light matrix,
+      Write to CSV.
     """
     print('Ooga booga im in space')
 
@@ -26,4 +32,7 @@ class Controller:
 if __name__ == '__main__':
   main = Controller()
   main.begin_experiment()
-  #testing commits
+
+  # Main program loop
+  while True:
+    pass

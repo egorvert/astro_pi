@@ -1,6 +1,7 @@
 # Adam and Ben
+from metric import MetricController
 
-class GyroscopeController:
+class GyroscopeController(MetricController):
   """
     Controller for methods and data related to the gyroscope
     

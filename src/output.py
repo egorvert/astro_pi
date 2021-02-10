@@ -1,5 +1,8 @@
 # Everyone
+from pathlib import Path
 
+dir_path = Path(__file__).parent.resolve()
+data_file = dir_path/'data.csv'
 class OutputController:
   """
     Controller that manages data collected being saved to local files\n
@@ -19,3 +22,5 @@ class OutputController:
       :param data: Data to record
     """
     pass
+
+  

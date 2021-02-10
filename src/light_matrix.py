@@ -1,6 +1,7 @@
 # Egor and Stepan
+from metric import MetricController
 
-class MatrixController:
+class MatrixController(MetricController):
   """
     Controller for methods and data related to the light matrix
 
