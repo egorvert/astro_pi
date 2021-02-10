@@ -1,3 +1,5 @@
+# Greg and Alan
+
 class AccelerometerController:
   """
     Controller for methods and data related to the accelerometer
