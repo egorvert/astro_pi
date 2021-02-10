@@ -23,9 +23,9 @@ class MetricController:
   def measure(self):
     new_value = self.measure_value()
     info = {
-        'time': self.get_timestamp(),
-        'value': new_value,
-        'is_deviant': self.check_deviance(new_value)
+      'time': self.get_timestamp(),
+      'value': new_value,
+      'is_deviant': self.check_deviance(new_value)
     }
     self.history.push(new_value)
     return info
