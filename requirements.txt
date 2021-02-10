@@ -1,5 +1,6 @@
 # Development Dependencies
 Sphinx==3.4.3
 sphinx-rtd-theme==0.5.1
+yapf==0.30.0
 
 # Production Dependencies
