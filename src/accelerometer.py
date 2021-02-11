@@ -1,5 +1,5 @@
 # Greg and Alan
-from metric import MetricController
+from src.metric import MetricController
 
 
 class AccelerometerController(MetricController):

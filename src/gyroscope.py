@@ -1,5 +1,5 @@
 # Adam and Ben
-from metric import MetricController
+from src.metric import MetricController
 
 
 class GyroscopeController(MetricController):

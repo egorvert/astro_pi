@@ -1,5 +1,5 @@
 # Egor and Stepan
-from metric import MetricController
+from src.metric import MetricController
 
 
 class MatrixController(MetricController):
