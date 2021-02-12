@@ -1,21 +1,18 @@
 class MetricController:
-  """
-    Base class for controllers. Handles receiving data from hardware modules
-    and analysing them for spikes in values.
+  """Base class for controllers. Handles receiving data from hardware modules
+  and analysing them for spikes in values.
 
-    :param deviance_value: Minimum value that would count for a change (See src.MetricController.check_deviance)
-    :type deviance_value: float
+  :param deviance_value: Minimum value that would count for a change
+  :type deviance_value: float
   """
-  def __init__(self, deviance_value):
+  def __init__(self, deviance_value: float):
     self.deviance_value = deviance_value
 
     self.history = []
 
   @staticmethod
   def get_timestamp():
-    """
-      Gets the current time
-    """
+    """Gets the current time"""
     return None
 
   def measure_value(self):
@@ -25,12 +22,13 @@ class MetricController:
     return 0
 
   def check_deviance(self, new_value):
-    """
-      Compares a new value to the average of the previous values.\n
-      If there is a notable deviance (Above self.deviance_value)
+    """Compares a new value to the average of the previous values.\n
+    If there is a notable deviance (Above self.deviance_value)
 
-      :param new_value: The new value to check
-      :type new_value: float
+    :param new_value: The new value to check
+    :type new_value: float
+    :return: Whether the new value is deviant
+    :rtype: bool
     """
     # Works out the average from the past three results stored in history
     # Subtracts the current result from the average

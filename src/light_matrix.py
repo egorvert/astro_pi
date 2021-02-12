@@ -3,11 +3,10 @@ from src.metric import MetricController
 
 
 class MatrixController(MetricController):
-  """
-    Controller for methods and data related to the light matrix
+  """Controller for methods and data related to the light matrix
 
-    :param con: Reference to main controller
-    :type con: main.Controller
+  :param con: Reference to main controller
+  :type con: main.Controller
   """
   def __init__(self, con):
     super().__init__(1)

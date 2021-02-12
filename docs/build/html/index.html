@@ -86,8 +86,13 @@
               <p class="caption"><span class="caption-text">Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Classes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
 </ul>
 
@@ -166,8 +171,15 @@ These components are connected together via references in a main <cite>Controlle
 <p class="caption"><span class="caption-text">Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Other Classes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
 </ul>
 </div>
@@ -182,7 +194,8 @@ Only big-picture experiment administration should be put here</p>
 <dl class="py method">
 <dt id="main.Controller.begin_experiment">
 <code class="sig-name descname">begin_experiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Controller.begin_experiment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Begins the experiment</p>
+<dd><p>Handles the main loop of the experiment. Calls all components
+and directs their results to the output controller</p>
 </dd></dl>
 
 </dd></dl>

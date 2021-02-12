@@ -3,11 +3,10 @@ from src.metric import MetricController
 
 
 class GyroscopeController(MetricController):
-  """
-    Controller for methods and data related to the gyroscope
-    
-    :param con: Reference to main controller
-    :type con: main.Controller
+  """Controller for methods and data related to the gyroscope
+  
+  :param con: Reference to main controller
+  :type con: main.Controller
   """
   def __init__(self, con):
     super().__init__(1)

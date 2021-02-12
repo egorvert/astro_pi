@@ -3,11 +3,10 @@ from src.metric import MetricController
 
 
 class AccelerometerController(MetricController):
-  """
-    Controller for methods and data related to the accelerometer
+  """Controller for methods and data related to the accelerometer
 
-    :param con: Reference to main controller
-    :type con: main.Controller
+  :param con: Reference to main controller
+  :type con: main.Controller
   """
   def __init__(self, con):
     super().__init__(1)
