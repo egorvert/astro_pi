@@ -1,5 +1,6 @@
 # Everyone
 from pathlib import Path
+from src.metric import MetricRecord
 
 dir_path = Path(__file__).parent.resolve()
 data_file = f'{dir_path}\data.csv'
@@ -19,7 +20,7 @@ class OutputController:
   def __init__(self, con):
     self.con = con
 
-  def record_result(self, data):
+  def record_results(self, data: list[MetricRecord]):
     """Records a result and saves it to the current records file
 
     :param data: Data to record

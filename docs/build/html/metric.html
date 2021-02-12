@@ -171,33 +171,40 @@
 and analysing them for spikes in values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>deviance_value</strong> (<em>float</em>) – Minimum value that would count for a change</p>
+<dd class="field-odd"><p><strong>deviance_value</strong> – Minimum value that would count for a change</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt id="src.metric.MetricController.check_deviance">
-<code class="sig-name descname">check_deviance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.metric.MetricController.check_deviance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_deviance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_value</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#src.metric.MetricController.check_deviance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compares a new value to the average of the previous values.</p>
 <p>If there is a notable deviance (Above self.deviance_value)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>new_value</strong> (<em>float</em>) – The new value to check</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Whether the new value is deviant</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>bool</p>
+<dd class="field-odd"><p><strong>new_value</strong> – The new value to check</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="src.metric.MetricController.get_timestamp">
-<em class="property">static </em><code class="sig-name descname">get_timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.metric.MetricController.get_timestamp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the current time</p>
+<dt id="src.metric.MetricController.measure">
+<code class="sig-name descname">measure</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#src.metric.MetricRecord" title="src.metric.MetricRecord">src.metric.MetricRecord</a><a class="headerlink" href="#src.metric.MetricController.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a new data point from the component and returns
+it paird with metadata about the record</p>
 </dd></dl>
 
+<dl class="py method">
+<dt id="src.metric.MetricController.measure_value">
+<code class="sig-name descname">measure_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#src.metric.MetricController.measure_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a new value from the component</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="src.metric.MetricRecord">
+<em class="property">class </em><code class="sig-prename descclassname">src.metric.</code><code class="sig-name descname">MetricRecord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span><span class="p">:</span> <span class="n">datetime.datetime</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">is_deviant</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.metric.MetricRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that holds the information about a single point of data from a component</p>
 </dd></dl>
 
 </div>

@@ -5,3 +5,6 @@ Metric Base Class
 
 .. autoclass:: MetricController
 	:members:
+
+.. autoclass:: MetricRecord
+	:members:
