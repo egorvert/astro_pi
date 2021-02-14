@@ -1,3 +1,4 @@
+import time
 from src.accelerometer import AccelerometerController
 from src.camera import CameraController
 from src.gyroscope import GyroscopeController
@@ -12,16 +13,26 @@ class Controller:
   """
   def __init__(self):
     self.output = OutputController(self)
+    self.light_matrix = MatrixController(self)
+
     self.camera = CameraController(self)
     self.accelerometer = AccelerometerController(self)
     self.gyroscope = GyroscopeController(self)
-    self.light_matrix = MatrixController(self)
 
-  def begin_experiment(self):
+  def begin_experiment(self, timegap=5):
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
     """
     print('Ooga booga im in space')
+    while True:
+      cam_result = self.camera.measure()
+      acc_result = self.accelerometer.measure()
+      gyro_result = self.gyroscope.measure()
+      self.light_matrix.update(cam_changed=cam_result.is_deviant,
+                               acc_changed=acc_result.is_deviant,
+                               gyro_changed=gyro_result.is_deviant)
+      self.output.record_results([cam_result, acc_result, gyro_result])
+      time.sleep(timegap)
 
 
 if __name__ == '__main__':
