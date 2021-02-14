@@ -9,7 +9,7 @@ class AccelerometerController(MetricController):
   :type con: main.Controller
   """
   def __init__(self, con):
-    super().__init__(1)
+    super().__init__(1, 'accelerometer')
     self.con = con
 
   def measure_value(self):

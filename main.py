@@ -21,9 +21,19 @@ class Controller:
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
     """
+    raise ValueError('something happened')
     print('Ooga booga im in space')
 
 
 if __name__ == '__main__':
   main = Controller()
-  main.begin_experiment()
+  main.output.log('Experiment has begun')
+  try:
+    main.begin_experiment()
+  except Exception as err:
+    main.output.log('Experiment ceased unexpectedly', err)
+  else:
+    main.output.log('Experiment has completed successfully')
+  finally:
+    main.output.log('Experiment has stopped')
+    main.output.record_results([])
