@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Output &mdash; Wellington College Astro Pi Docs</title>
+  <title>Metric Base Class &mdash; Wellington College Astro Pi Docs</title>
   
 
   
@@ -38,7 +38,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Metric Base Class" href="metric.html" /> 
+    <link rel="next" title="Output" href="output.html" />
+    <link rel="prev" title="Light Matrix" href="light_matrix.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,8 +93,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Other Classes:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Output</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Metric Base Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
 </ul>
 
             
@@ -142,13 +143,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Output</li>
+      <li>Metric Base Class</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="sources/output.rst.txt" rel="nofollow"> View page source</a>
+            <a href="sources/metric.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,30 +162,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-src.output">
-<span id="output"></span><h1>Output<a class="headerlink" href="#module-src.output" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-src.metric">
+<span id="metric-base-class"></span><h1>Metric Base Class<a class="headerlink" href="#module-src.metric" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="src.output.OutputController">
-<em class="property">class </em><code class="sig-prename descclassname">src.output.</code><code class="sig-name descname">OutputController</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.output.OutputController" title="Permalink to this definition">¶</a></dt>
-<dd><p>Controller that manages data collected being saved to local files</p>
-<p>Data should be saved on collection such that an unexpected error will
-not destroy all previously collected data</p>
+<dt id="src.metric.MetricController">
+<em class="property">class </em><code class="sig-prename descclassname">src.metric.</code><code class="sig-name descname">MetricController</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">deviance_value</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.metric.MetricController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for controllers. Handles receiving data from hardware modules
+and analysing them for spikes in values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>con</strong> (<a class="reference internal" href="index.html#main.Controller" title="main.Controller"><em>main.Controller</em></a>) – Reference to main controller</p>
+<dd class="field-odd"><p><strong>deviance_value</strong> – Minimum value that would count for a change</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="src.output.OutputController.record_results">
-<code class="sig-name descname">record_results</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.output.OutputController.record_results" title="Permalink to this definition">¶</a></dt>
-<dd><p>Records a result and saves it to the current records file</p>
+<dt id="src.metric.MetricController.check_deviance">
+<code class="sig-name descname">check_deviance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_value</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#src.metric.MetricController.check_deviance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares a new value to the average of the previous values.</p>
+<p>If there is a notable deviance (Above self.deviance_value)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> – Data to record</p>
+<dd class="field-odd"><p><strong>new_value</strong> – The new value to check</p>
 </dd>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="src.metric.MetricController.measure">
+<code class="sig-name descname">measure</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#src.metric.MetricRecord" title="src.metric.MetricRecord">src.metric.MetricRecord</a><a class="headerlink" href="#src.metric.MetricController.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a new data point from the component and returns
+it paird with metadata about the record</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="src.metric.MetricController.measure_value">
+<code class="sig-name descname">measure_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#src.metric.MetricController.measure_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a new value from the component</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="src.metric.MetricRecord">
+<em class="property">class </em><code class="sig-prename descclassname">src.metric.</code><code class="sig-name descname">MetricRecord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span><span class="p">:</span> <span class="n">datetime.datetime</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">is_deviant</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.metric.MetricRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that holds the information about a single point of data from a component</p>
 </dd></dl>
 
 </div>
@@ -195,7 +215,8 @@ not destroy all previously collected data</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="metric.html" class="btn btn-neutral float-left" title="Metric Base Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="output.html" class="btn btn-neutral float-right" title="Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="light_matrix.html" class="btn btn-neutral float-left" title="Light Matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

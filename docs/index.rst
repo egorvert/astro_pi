@@ -12,8 +12,15 @@ On submition, the code should be compiled to one file; the code itself should no
 	:caption: Components:
 	
 	accelerometer
+	camera
 	gyroscope
 	light_matrix
+
+.. toctree::
+	:maxdepth: 2
+	:caption: Other Classes:
+	
+	metric
 	output
 
 Main Controller

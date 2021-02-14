@@ -5,6 +5,13 @@ pushd %~dp0
 if not exist "build" md build
 if not exist "_static" md _static
 
+if exist "build/html/static" (
+	move "build/html/static" "build/html/_static"
+)
+if exist "build/html/sources" (
+	move "build/html/sources" "build/html/_sources"
+)
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (
