@@ -14,4 +14,9 @@ class AccelerometerController(MetricController):
 
   def measure_value(self):
     # Reads the value from the relevent module and returns it
+    # Return an tuple of x, y, z
     return 1
+
+  def check_deviance(self, new_value: tuple) -> bool:
+
+    return True
