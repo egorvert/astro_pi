@@ -21,7 +21,6 @@ class Controller:
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
     """
-    raise ValueError('something happened')
     print('Ooga booga im in space')
 
 
