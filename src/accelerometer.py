@@ -1,4 +1,5 @@
 # Greg and Alan
+from sense_hat import SenseHat
 from src.metric import MetricController
 
 
@@ -13,9 +14,15 @@ class AccelerometerController(MetricController):
     self.con = con
 
   def measure_value(self):
-    # Reads the value from the relevent module and returns it
-    # Return an tuple of x, y, z
-    return 1
+    # Reads pitch, raw, yaw and return tuple (x, y, z)
+    sense = SenseHat()
+    accel_value = sense.get_accelerometer_raw()
+    x = accel_value.get('x')
+    y = accel_value.get('y')
+    z = accel_value.get('z')
+    accel =(x, y, z)
+
+    return accel
 
   def check_deviance(self, new_value: tuple) -> bool:
 
