@@ -7,11 +7,11 @@ gyroOrent ={
 } # test data
 
 
-# def moving_window_average(x, n_neighbors=3):
-#   n = len(x)
-#   width = n_neighbors * 2 + 1
-#   x = [x[0]] * n_neighbors + x + [x[-1]] * n_neighbors
-#   return [sum(x[i:i + width]) * 2 / n for i in range(n)]
+def moving_window_average(x, n_neighbors=3):
+  n = len(x)
+  width = n_neighbors * 2 + 1
+  x = [x[0]] * n_neighbors + x + [x[-1]] * n_neighbors
+  return [sum(x[i:i + width]) * 2 / n for i in range(n)]
 
 
 class GyroscopeController:
@@ -29,10 +29,10 @@ class GyroscopeController:
 
 
   while True:
-    gyroOrent = sense.get_gyroscope()
-    pitchList.append([gyroOrent[i] for i in gyroOrent if i == 'pitch']) 
-    rollList.append([gyroOrent[i] for i in gyroOrent if i == 'roll']) 
-    yawList.append([gyroOrent[i] for i in gyroOrent if i == 'yaw'])
+    pitchList.append(sense.get_gyroscope()['pitch']) 
+    rollList.append(sense.get_gyroscope()['roll']) 
+    yawList.append(sense.get_gyroscope()['yaw'])
+    print(pitchList)
 
 # def __init__(self, con):
 #   self.con = con
