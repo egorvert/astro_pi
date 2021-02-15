@@ -9,17 +9,11 @@ class GyroscopeController(MetricController):
     :type con: main.Controller
   """
   def __init__(self, con):
-    super().__init__(1, 'gyroscope')
+    dev = (2 * 3**0.5) * (0.3 if con.testing else 0.05)
+    super().__init__(dev, 'gyroscope')
     self.con = con
     self.sense = con.sense
 
   def measure_value(self) -> tuple:
     values = self.sense.get_gyroscope_raw()
     return (values['x'], values['y'], values['z'])
-
-  def check_deviance(self, new_value: tuple) -> bool:
-    # TODO: This func takes in a tuple in 'new_value' and needs to return whether
-    # it is deviant from the previous ones
-    # To do this check it against the last few values in self.history (A list of the previous
-    # tuples recorded)
-    return False

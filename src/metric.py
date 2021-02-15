@@ -39,7 +39,7 @@ class MetricController:
     # via different methods
     return 0.0
 
-  def check_deviance(self, new_value: float) -> bool:
+  def check_deviance(self, new_value) -> bool:
     """Compares a new value to the average of the previous values.\n
     If there is a notable deviance (Above self.deviance_value)
 
@@ -48,8 +48,23 @@ class MetricController:
     if len(self.history) < 3:
       return False
 
+    t = type(new_value)
+    if t == int or t == float:
+      return self.check_deviance_number(new_value)
+    if t == tuple or t == list:
+      return self.check_deviance_tuple(new_value)
+    return False
+
+  def check_deviance_number(self, new_value: float) -> bool:
     average = sum(self.history[-3:]) / 3
     return abs(new_value - average) >= self.deviance_value
+
+  def check_deviance_tuple(self, new_value: tuple) -> bool:
+    old1, old2, old3 = self.history[-3:]
+    average_old = ((o1 + o2 + o3) / 3 for o1, o2, o3 in zip(old1, old2, old3))
+    difference = (n - o for n, o in zip(new_value, average_old))
+    difference_mag = sum(map(lambda x: x**2, difference))**0.5
+    return difference_mag >= self.deviance_value
 
   def measure(self) -> MetricRecord:
     """Reads a new data point from the component and returns
@@ -64,8 +79,10 @@ class MetricController:
       value = 0
       error = err
       is_deviant = False
-    return MetricRecord(time=datetime.now(),
-                        source=self.source,
-                        value=value,
-                        is_deviant=is_deviant,
-                        error=error)
+    return MetricRecord(
+      time=datetime.now(),
+      source=self.source,
+      value=value,
+      is_deviant=is_deviant,
+      error=error
+    )

@@ -9,7 +9,7 @@ class CameraController(MetricController):
   :type con: main.Controller
   """
   def __init__(self, con):
-    super().__init__(1, 'camera')
+    super().__init__(0.1, 'camera')
     self.con = con
     self.sense = con.sense
 
