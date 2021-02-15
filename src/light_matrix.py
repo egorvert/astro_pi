@@ -10,5 +10,5 @@ class MatrixController():
   def __init__(self, con):
     self.con = con
 
-  def update(cam_changed: bool, acc_changed: bool, gyro_changed: bool):
+  def update(self, cam_changed: bool, acc_changed: bool, gyro_changed: bool):
     pass

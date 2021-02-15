@@ -27,7 +27,7 @@ class MetricController:
 
   :param deviance_value: Minimum value that would count for a change
   """
-  def __init__(self, deviance_value: float, source: str):
+  def __init__(self, deviance_value: float, source: str = 'a sensor'):
     self.deviance_value = deviance_value
     self.source = source
     self.history = []
@@ -57,9 +57,10 @@ class MetricController:
     try:
       value = self.measure_value()
       is_deviant = self.check_deviance(value)
-      self.history.push(value)
+      self.history.append(value)
       error = None
     except Exception as err:
+      self.con.output.log('Something went wrong when measuring', self.source)
       value = 0
       error = err
       is_deviant = False
