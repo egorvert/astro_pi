@@ -1,10 +1,18 @@
 import time
-from sense_hat import SenseHat
 from src.accelerometer import AccelerometerController
 from src.camera import CameraController
 from src.gyroscope import GyroscopeController
 from src.light_matrix import MatrixController
 from src.output import OutputController
+
+try:
+  from sense_hat import SenseHat
+except:
+  # If this fails then that likely means it is not running on
+  # the raspberry pi. Therefore import the local testing version
+  print('\033[33m' + '!! WARNING: Using local test version of SenseHat')
+  print('!! Do not take results as example data' + '\033[0m')
+  from src.test_sense_hat import SenseHat
 
 
 class Controller:
@@ -28,6 +36,7 @@ class Controller:
     """
     print('Ooga booga im in space')
     while True:
+      print('Running...')
       cam_result = self.camera.measure()
       acc_result = self.accelerometer.measure()
       gyro_result = self.gyroscope.measure()
