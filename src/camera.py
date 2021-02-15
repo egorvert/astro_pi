@@ -12,7 +12,7 @@ class CameraController(MetricController, picamera.array.PiMotionAnalysis):
   :type con: main.Controller
   """
   def __init__(self, con):
-    super().__init__(1, 'camera')
+    super().__init__(0.1, 'camera')
     self.con = con
     self.sense = con.sense
   def analyze(self,a): #functiont that determines whether there is motion by looking at vectors with magnitudes larger than 60

@@ -7,12 +7,14 @@ from src.output import OutputController
 
 try:
   from sense_hat import SenseHat
+  testing = False
 except:
   # If this fails then that likely means it is not running on
   # the raspberry pi. Therefore import the local testing version
   print('\033[33m' + '⚠️  WARNING: Using local test version of SenseHat ⚠️')
   print('⚠️  WARNING: Do not take results as example data  ⚠️' + '\033[0m')
   from src.test_sense_hat import SenseHat
+  testing = True
 
 
 class Controller:
@@ -22,6 +24,7 @@ class Controller:
   """
   def __init__(self):
     self.sense = SenseHat()
+    self.testing = testing
 
     self.output = OutputController(self)
     self.light_matrix = MatrixController(self)
@@ -40,9 +43,11 @@ class Controller:
       cam_result = self.camera.measure()
       acc_result = self.accelerometer.measure()
       gyro_result = self.gyroscope.measure()
-      self.light_matrix.update(cam_changed=cam_result.is_deviant,
-                               acc_changed=acc_result.is_deviant,
-                               gyro_changed=gyro_result.is_deviant)
+      self.light_matrix.update(
+        cam_changed=cam_result.is_deviant,
+        acc_changed=acc_result.is_deviant,
+        gyro_changed=gyro_result.is_deviant
+      )
       self.output.record_results([cam_result, acc_result, gyro_result])
       time.sleep(timegap)
 

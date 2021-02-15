@@ -10,7 +10,7 @@ class AccelerometerController(MetricController):
   :type con: main.Controller
   """
   def __init__(self, con):
-    super().__init__(1, 'accelerometer')
+    super().__init__(0.25, 'accelerometer')
     self.con = con
     self.sense = con.sense
 
@@ -32,16 +32,18 @@ class AccelerometerController(MetricController):
       for i in range(3):
         for t in range(5):
           past_value_average += past_value[t][i]
-        if abs((new_value[i] - past_value_average / 5) /
-               (past_value_average / 5)) > 0.5:
+        if abs(
+          (new_value[i] - past_value_average / 5) / (past_value_average / 5)
+        ) > 0.5:
           return True
         past_value_average = 0
 
       for a in range(5):
-        vector_average += sum(map(lambda x: x**2, past_value[a]))
-      vector_average = vector_average / 5
-      if abs(sum(map(lambda x: x**2, new_value)) -
-             vector_average) / vector_average > 0.5:
+        vector_average += sum(map(lambda x: x**2, past_value[a])) ** 0.5
+      vector_average = (vector_average) / 5
+      if abs(
+        sum(map(lambda x: x**2, new_value)) ** 0.5 - vector_average
+      ) / vector_average > 0.5:
         return True
 
       return False
