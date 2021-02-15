@@ -5,3 +5,4 @@ yapf==0.30.0
 
 # Production Dependencies
 sense-hat==2.2.0
+picamera==1.13
