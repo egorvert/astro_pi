@@ -11,7 +11,8 @@ class CameraController(MetricController):
   def __init__(self, con):
     super().__init__(1, 'camera')
     self.con = con
+    self.sense = con.sense
 
-  def measure_value(self):
+  def measure_value(self) -> float:
     # Reads the value from the relevent module and returns it
     return 1

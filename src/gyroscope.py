@@ -1,38 +1,25 @@
-from sense_hat import SenseHat
-
-gyroOrent ={
-  'pitch': 76.2714433283,
-  'roll': 237.873941872,
-  'yaw': 71.2012831036
-} # test data
+from src.metric import MetricController
 
 
-def moving_window_average(x, n_neighbors=3):
-  n = len(x)
-  width = n_neighbors * 2 + 1
-  x = [x[0]] * n_neighbors + x + [x[-1]] * n_neighbors
-  return [sum(x[i:i + width]) * 2 / n for i in range(n)]
-
-
-class GyroscopeController:
+class GyroscopeController(MetricController):
   """
     Controller for methods and data related to the gyroscope
     
     :param con: Reference to main controller
     :type con: main.Controller
   """
-  sense = SenseHat()
-  gyroList = []
-  pitchList = []
-  rollList = []
-  yawList = []
+  def __init__(self, con):
+    super().__init__(1, 'gyroscope')
+    self.con = con
+    self.sense = con.sense
 
+  def measure_value(self) -> tuple:
+    values = self.sense.get_gyroscope_raw()
+    return (values['x'], values['y'], values['z'])
 
-  while True:
-    pitchList.append(sense.get_gyroscope()['pitch']) 
-    rollList.append(sense.get_gyroscope()['roll']) 
-    yawList.append(sense.get_gyroscope()['yaw'])
-    print(pitchList)
-
-# def __init__(self, con):
-#   self.con = con
+  def check_deviance(self, new_value: tuple) -> bool:
+    # TODO: This func takes in a tuple in 'new_value' and needs to return whether
+    # it is deviant from the previous ones
+    # To do this check it against the last few values in self.history (A list of the previous
+    # tuples recorded)
+    return False

@@ -1,4 +1,5 @@
 import time
+from sense_hat import SenseHat
 from src.accelerometer import AccelerometerController
 from src.camera import CameraController
 from src.gyroscope import GyroscopeController
@@ -12,6 +13,8 @@ class Controller:
   Only big-picture experiment administration should be put here
   """
   def __init__(self):
+    self.sense = SenseHat()
+
     self.output = OutputController(self)
     self.light_matrix = MatrixController(self)
 
