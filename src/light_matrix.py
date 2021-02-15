@@ -2,6 +2,7 @@
 from sense_hat import SenseHat
 from time import sleep
 
+
 class MatrixController():
   """Controller for methods and data related to the light matrix
 
@@ -22,15 +23,15 @@ class MatrixController():
     greeting_msg = "Hello world!"
 
     greeting_icon = [
-    O, O, O, O, O, O, O, O,
-    O, O, O, O, O, O, O, O,
-    O, X, O, O, O, O, X, O,
-    X, O, X, O, O, X, O, X,
-    O, O, O, O, O, O, O, O,
-    O, X, O, O, O, O, X, O,
-    O, O, X, X, X, X, O, O,
-    O, O, O, O, O, O, O, O
-    ]
+      O, O, O, O, O, O, O, O,
+      O, O, O, O, O, O, O, O,
+      O, X, O, O, O, O, X, O,
+      X, O, X, O, O, X, O, X,
+      O, O, O, O, O, O, O, O,
+      O, X, O, O, O, O, X, O,
+      O, O, X, X, X, X, O, O,
+      O, O, O, O, O, O, O, O
+    ]  # yapf: disable
 
     sense.show_message(greeting_msg, back_colour=O, text_colour=blue)
     sleep(1)

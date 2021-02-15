@@ -39,10 +39,10 @@ class AccelerometerController(MetricController):
         past_value_average = 0
 
       for a in range(5):
-        vector_average += sum(map(lambda x: x**2, past_value[a])) ** 0.5
+        vector_average += sum(map(lambda x: x**2, past_value[a]))**0.5
       vector_average = (vector_average) / 5
       if abs(
-        sum(map(lambda x: x**2, new_value)) ** 0.5 - vector_average
+        sum(map(lambda x: x**2, new_value))**0.5 - vector_average
       ) / vector_average > 0.5:
         return True
 
