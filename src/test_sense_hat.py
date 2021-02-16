@@ -26,3 +26,6 @@ class SenseHat:
 
   def set_pixels(self, *args, **kwargs):
     pass
+
+  def load_image(self, file_path, redraw=True):
+    pass
