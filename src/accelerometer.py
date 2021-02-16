@@ -24,7 +24,10 @@ class AccelerometerController(MetricController):
     Next it checks the deviance of the vector as a whole
     For now if the difference is over 25% of the average, then it is a deviant
     """
-    try:
+    if len(self.con.history) < 5:
+      return False
+    
+    else:
       past_value = self.con.history[-5:]
       past_value_average = 0
       vector_average = 0
@@ -46,6 +49,4 @@ class AccelerometerController(MetricController):
       ) / vector_average > 0.5:
         return True
 
-      return False
-    except:
       return False
