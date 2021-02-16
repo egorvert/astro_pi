@@ -17,3 +17,12 @@ class SenseHat:
 
   def get_accelerometer_raw(self):
     return self._get_xyz()
+
+  def set_rotation(self, *args, **kwargs):
+    pass
+
+  def show_message(self, *args, **kwargs):
+    pass
+
+  def set_pixels(self, *args, **kwargs):
+    pass

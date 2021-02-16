@@ -2,12 +2,12 @@
 import datetime
 from time import sleep
 import numpy as np
-from picamera import PiCamera
+#from picamera import PiCamera
 
 from src.metric import MetricController
 
 
-class CameraController(MetricController, picamera.array.PiMotionAnalysis):
+class CameraController(MetricController):  #, picamera.array.PiMotionAnalysis):
   """Controller for methods and data related to the light sensor/camera.
     
   :param con: Reference to main controller
@@ -32,12 +32,12 @@ class CameraController(MetricController, picamera.array.PiMotionAnalysis):
     pass
 
 
-while True:  #Change this so that it doesnt get stuck
-  with picamera.PiCamera() as camera:
-    with CameraController(camera) as data_out:
-      camera.resolution = (640, 480)
-      camera.start_recording(
-        '/dev/null', format='h264', motion_output=data_out
-      )  #records for 60 s V
-      camera.wait_recording(60)
-      camera.stop_recording()
+# while True:  #Change this so that it doesnt get stuck
+#   with picamera.PiCamera() as camera:
+#     with CameraController(camera) as data_out:
+#       camera.resolution = (640, 480)
+#       camera.start_recording(
+#         '/dev/null', format='h264', motion_output=data_out
+#       )  #records for 60 s V
+#       camera.wait_recording(60)
+#       camera.stop_recording()
