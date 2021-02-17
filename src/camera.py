@@ -31,7 +31,7 @@ class CameraController(MetricController):
       # TODO: Open the file and read the light intensity of the pixels
       # Use a func to get average intensity (From 0 -> 1) from a grid section of the image
       # Return a tuple of the average insensity of each section
-    return (1, 1, 1, 1)
+      return (1, 1, 1, 1)
 
   def check_deviance(self, new_value: tuple) -> bool:
     if len(self.history) < 3:
