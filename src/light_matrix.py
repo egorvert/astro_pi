@@ -17,7 +17,7 @@ class MatrixController():
     ["idle_fm_4.png", 1000],
     ["idle_fm_5.png",100]
     ]
-    
+
   cameraReactionFM = [
     ["surprised_fm_0.png",1000],
     ["surprised_fm_1.png",150],
@@ -30,7 +30,8 @@ class MatrixController():
 
   accelFM = [
     "accelerometer-frame-1.png",
-    "accelerometer-frame-2.png"]
+    "accelerometer-frame-2.png"
+    ]
 
   gyroFM = [
     "gyroscope-frame-1.png",
