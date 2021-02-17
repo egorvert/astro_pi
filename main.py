@@ -1,4 +1,5 @@
 import time
+from datetime import datetime, timedelta
 from src.accelerometer import AccelerometerController
 from src.camera import CameraController
 from src.gyroscope import GyroscopeController
@@ -33,17 +34,19 @@ class Controller:
     self.accelerometer = AccelerometerController(self)
     self.gyroscope = GyroscopeController(self)
 
-  def begin_experiment(self, framerate: int = 10, measure_period: int = 5):
+  def begin_experiment(self, framerate: int = 10, measure_period: int = 5, duration: int = 178):
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
     """
     print('Ooga booga im in space')
     framecount = 0
-    while True:
+    end_time = datetime.now() + timedelta(minutes=duration)
+    while datetime.now() < end_time:
       self.light_matrix.update()
 
       if framecount % (framerate * measure_period) == 0:
-        print('Measuring sensors...')
+        minutes = (end_time - datetime.now()).total_seconds() // 6 / 10
+        print(f'Measuring sensors... ({minutes} min{"s"[minutes==1:]} remaining)')
         cam_result = self.camera.measure()
         acc_result = self.accelerometer.measure()
         gyro_result = self.gyroscope.measure()
@@ -62,15 +65,9 @@ if __name__ == '__main__':
   main = Controller()
 
   if main.testing:
-    main.output.log(
-      'SenseHat could not be accessed -> Using dummy module',
-      show_stdout=False
-    )
+    main.output.log('SenseHat could not be accessed -> Using dummy module', show_stdout=False)
   if main.camera.testing:
-    main.output.log(
-      'PiCamera could not be accessed -> Using dummy module',
-      show_stdout=False
-    )
+    main.output.log('PiCamera could not be accessed -> Using dummy module', show_stdout=False)
 
   poststr = ' in testing mode' if main.testing or main.camera.testing else ''
   main.output.log('Experiment beginning' + poststr)
