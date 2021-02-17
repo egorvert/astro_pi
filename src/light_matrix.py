@@ -10,8 +10,8 @@ class MatrixController():
 
 
   idleFM = [
-    ["idle_fm0.png",2500],
-    ["idle_fm1.png",150],
+    ["idle_fm_0.png",2500],
+    ["idle_fm_1.png",150],
     ["idle_fm_2.png",1000],
     ["idle_fm_3.png",100],
     ["idle_fm_4.png", 1000],
