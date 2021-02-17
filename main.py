@@ -12,8 +12,8 @@ except:
   # If this fails then that likely means it is not running on
   # the raspberry pi. Therefore import the local testing version
   print('\033[33m' + '⚠️  WARNING: Using local test version of SenseHat ⚠️')
-  print('⚠️  WARNING: Do not take results as example data  ⚠️' + '\033[0m')
-  from src.test_sense_hat import SenseHat
+  print('⚠️  WARNING: Do not take results as example data  ⚠️\n' + '\033[0m')
+  from src.test_modules import SenseHat
   testing = True
 
 

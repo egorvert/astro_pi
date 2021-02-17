@@ -1,13 +1,19 @@
 # Egor and Stepan
-import datetime
-from time import sleep
-import numpy as np
-#from picamera import PiCamera
-
 from src.metric import MetricController
 
+try:
+  from picamera import PiCamera
+  test_camera = False
+except:
+  # If this fails then that likely means it is not running on
+  # the raspberry pi. Therefore import the local testing version
+  print('\033[33m' + '⚠️  WARNING: Using local test version of PiCamera ⚠️')
+  print('⚠️  WARNING: Do not take results as example data  ⚠️\n' + '\033[0m')
+  from src.test_modules import PiCamera
+  test_camera = True
 
-class CameraController(MetricController):  #, picamera.array.PiMotionAnalysis):
+
+class CameraController(MetricController):
   """Controller for methods and data related to the light sensor/camera.
     
   :param con: Reference to main controller
@@ -18,26 +24,19 @@ class CameraController(MetricController):  #, picamera.array.PiMotionAnalysis):
     self.con = con
     self.sense = con.sense
 
-  def analyze(self, a):
-    #functiont that determines whether there is motion by looking at vectors with magnitudes larger than 60
-    a = np.sqrt(
-      np.square(a['x'].astype(np.float)) + np.square(a['y'].astype(np.float))
-    ).clip(0, 255).astype(np.uint8)
-    if (a > 60).sum() > 10:
-      print("Motion detected! at %s" % (datetime.datetime.now()))
-      #change to light matrix output and save a true or false boolean to the main data file with a datetime
-
-  # Reads the value from the relevant module and returns it
   def measure_value(self) -> float:
-    pass
+    with PiCamera() as camera:
+      # Use https://picamera.readthedocs.io/en/release-1.13/api_camera.html#picamera.PiCamera.capture
+      # camera.capture('temp.jpg')
+      # TODO: Open the file and read the light intensity of the pixels
+      # Use a func to get average intensity (From 0 -> 1) from a grid section of the image
+      # Return a tuple of the average insensity of each section
+    return (1, 1, 1, 1)
 
+  def check_deviance(self, new_value: tuple) -> bool:
+    if len(self.history) < 3:
+      return False
 
-# while True:  #Change this so that it doesnt get stuck
-#   with picamera.PiCamera() as camera:
-#     with CameraController(camera) as data_out:
-#       camera.resolution = (640, 480)
-#       camera.start_recording(
-#         '/dev/null', format='h264', motion_output=data_out
-#       )  #records for 60 s V
-#       camera.wait_recording(60)
-#       camera.stop_recording()
+    averages = ((x + y + z) / 3 for x, y, z in zip(*self.history[-3:]))
+    differences = (abs(n - o) for n, o in zip(new_value, averages))
+    return any((d >= self.deviance_value for d in differences))
