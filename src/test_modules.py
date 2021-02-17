@@ -1,8 +1,15 @@
-import random, requests
+import random, requests, os
+from PIL import Image
+from pathlib import Path
+import numpy as np
 
 
 def rand():
   return random.random() * 2 - 1
+
+
+def randstr():
+  return str(random.random())[3:]
 
 
 class SenseHat:
@@ -32,16 +39,27 @@ class SenseHat:
 
 
 class PiCamera:
-  def __init__(self):
-    pass
+  def __init__(self, resolution: tuple = (640, 480)):
+    self.resolution = resolution
 
   def __enter__(self):
-    return PiCamera()
+    return self
 
   def __exit__(self, type, value, traceback):
     pass
 
   def capture(self, output, *args, **kwargs):
-    with open(output, 'wb') as f:
-      res = requests.get('https://picsum.photos/400.jpg')
+    Path("temp/img").mkdir(parents=True, exist_ok=True)
+
+    filename = f'temp/img/{randstr()}.jpg'
+    with open(filename, 'wb') as f:
+      w, h = self.resolution
+      res = requests.get(f'https://picsum.photos/{w}/{h}.jpg')
       f.write(res.content)
+
+    im = Image.open(filename)
+    pixels = np.array(im)
+    output.fill(0)
+    output += pixels
+
+    os.remove(filename)
