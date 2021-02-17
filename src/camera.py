@@ -1,8 +1,9 @@
 # Egor and Stepan
+#TODO: make a program that recognises deviations in light intensity between 2 captures
 import datetime
 from time import sleep
 import numpy as np
-#from picamera import PiCamera
+from picamera import PiCamera
 
 from src.metric import MetricController
 
@@ -17,27 +18,25 @@ class CameraController(MetricController):  #, picamera.array.PiMotionAnalysis):
     super().__init__(0.1, 'camera')
     self.con = con
     self.sense = con.sense
-
-  def analyze(self, a):
-    #functiont that determines whether there is motion by looking at vectors with magnitudes larger than 60
-    a = np.sqrt(
-      np.square(a['x'].astype(np.float)) + np.square(a['y'].astype(np.float))
-    ).clip(0, 255).astype(np.uint8)
-    if (a > 60).sum() > 10:
-      print("Motion detected! at %s" % (datetime.datetime.now()))
-      #change to light matrix output and save a true or false boolean to the main data file with a datetime
-
-  # Reads the value from the relevant module and returns it
-  def measure_value(self) -> float:
-    pass
-
-
-# while True:  #Change this so that it doesnt get stuck
-#   with picamera.PiCamera() as camera:
-#     with CameraController(camera) as data_out:
-#       camera.resolution = (640, 480)
-#       camera.start_recording(
-#         '/dev/null', format='h264', motion_output=data_out
-#       )  #records for 60 s V
-#       camera.wait_recording(60)
-#       camera.stop_recording()
+    self.camera = PiCamera()
+  def capture(self): #this needs to be done for example every 5 seconds
+    i = 1 #this should be put in the main loop
+    output1 = np.empty((480, 640, 3), dtype=np.uint8) #2 different arrays to capture 2 frames in so that they can be compared
+    output2= np.empty((480, 640, 3), dtype=np.uint8) #this sould stay out of the main loop so that they are only made once
+    camera.capture_effects = (128.128)
+    camera.resolution = (640,480)
+    if i % 2 != 0:
+      camera.capture(output1, 'rgb')
+    else:
+      camera.capture(output2,'rgb')
+    
+    if i % 2 == 0:
+      differences = np.subtract(output2,output1)
+      print(differences)
+    elif i % 2 != 0 and i != 1:
+        differences = np.subtract(output1, output2)
+    i+=1
+    sleep(5) #captures 2 frames 5 seconds apart
+   
+        
+    
