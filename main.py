@@ -12,8 +12,8 @@ except:
   # If this fails then that likely means it is not running on
   # the raspberry pi. Therefore import the local testing version
   print('\033[33m' + '⚠️  WARNING: Using local test version of SenseHat ⚠️')
-  print('⚠️  WARNING: Do not take results as example data  ⚠️' + '\033[0m')
-  from src.test_sense_hat import SenseHat
+  print('⚠️  WARNING: Do not take results as example data  ⚠️\n' + '\033[0m')
+  from src.test_modules import SenseHat
   testing = True
 
 
@@ -33,23 +33,29 @@ class Controller:
     self.accelerometer = AccelerometerController(self)
     self.gyroscope = GyroscopeController(self)
 
-  def begin_experiment(self, timegap=5):
+  def begin_experiment(self, framerate: int = 10, measure_period: int = 5):
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
     """
     print('Ooga booga im in space')
+    framecount = 0
     while True:
-      print('Running...')
-      cam_result = self.camera.measure()
-      acc_result = self.accelerometer.measure()
-      gyro_result = self.gyroscope.measure()
-      self.light_matrix.update(
-        cam_changed=cam_result.is_deviant,
-        acc_changed=acc_result.is_deviant,
-        gyro_changed=gyro_result.is_deviant
-      )
-      self.output.record_results([cam_result, acc_result, gyro_result])
-      time.sleep(timegap)
+      self.light_matrix.update()
+
+      if framecount % (framerate * measure_period) == 0:
+        print('Measuring sensors...')
+        cam_result = self.camera.measure()
+        acc_result = self.accelerometer.measure()
+        gyro_result = self.gyroscope.measure()
+        self.light_matrix.start_sequence(
+          cam_changed=cam_result.is_deviant,
+          acc_changed=acc_result.is_deviant,
+          gyro_changed=gyro_result.is_deviant
+        )
+        self.output.record_results([cam_result, acc_result, gyro_result])
+
+      framecount += 1
+      time.sleep(1 / framerate)
 
 
 if __name__ == '__main__':

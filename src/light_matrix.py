@@ -12,6 +12,8 @@ class MatrixController():
     self.con = con
     self.sense = con.sense
 
+    self.frame_queue = []
+
   def greeting(self):
     self.sense.set_rotation(270)
 
@@ -35,5 +37,12 @@ class MatrixController():
     sleep(1)
     self.sense.set_pixels(greeting_icon)
 
-  def update(self, cam_changed: bool, acc_changed: bool, gyro_changed: bool):
+  def update(self):
+    if len(self.frame_queue) == 0:
+      return
+    self.sense.load_image(self.frame_queue.pop(0))
+
+  def start_sequence(
+    self, cam_changed: bool, acc_changed: bool, gyro_changed: bool
+  ):
     pass

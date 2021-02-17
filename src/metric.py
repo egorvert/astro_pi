@@ -75,7 +75,7 @@ class MetricController:
       self.history.append(value)
       error = None
     except Exception as err:
-      self.con.output.log('Something went wrong when measuring', self.source)
+      self.con.output.log('Something went wrong when measuring ' + self.source)
       value = 0
       error = err
       is_deviant = False
