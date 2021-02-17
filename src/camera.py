@@ -1,4 +1,12 @@
 # Egor and Stepan
+<<<<<<< Updated upstream
+=======
+import datetime
+from time import sleep
+# import numpy as np
+#from picamera import PiCamera
+
+>>>>>>> Stashed changes
 from src.metric import MetricController
 
 try:

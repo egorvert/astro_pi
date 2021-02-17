@@ -1,0 +1,16 @@
+IDLE Animation frame durations:
+fm0 - 2500ms
+fm1 - 150ms
+fm2 - 1000ms
+fm3 - 100ms
+fm4 - 1000ms
+fm5 - 100ms
+
+CAMERA REACTION Animation frame durations:
+fm0 - 1000ms
+fm1 - 150ms
+fm2 - 500ms
+fm3 - 150ms
+fm4 - 1000ms
+fm5 - 150ms
+fm6 - 1000ms
