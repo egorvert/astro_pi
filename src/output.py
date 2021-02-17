@@ -18,11 +18,12 @@ class OutputController:
     self.con = con
     self.backlog = []
 
-  def log(self, message: str, err: Exception = None):
-    print(
-      f'LOG: {message}',
-      f'({type(err).__name__}: {str(err)})' if err is not None else ''
-    )
+  def log(self, message: str, err: Exception = None, show_stdout: bool = True):
+    if show_stdout:
+      print(
+        f'LOG: {message}',
+        f'({type(err).__name__}: {str(err)})' if err is not None else ''
+      )
     record = MetricRecord(time=datetime.now(), source='log', value=message)
     if err is not None:
       record.error = err

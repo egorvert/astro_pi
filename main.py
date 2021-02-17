@@ -60,7 +60,21 @@ class Controller:
 
 if __name__ == '__main__':
   main = Controller()
-  main.output.log('Experiment has begun')
+
+  if main.testing:
+    main.output.log(
+      'SenseHat could not be accessed -> Using dummy module',
+      show_stdout=False
+    )
+  if main.camera.testing:
+    main.output.log(
+      'PiCamera could not be accessed -> Using dummy module',
+      show_stdout=False
+    )
+
+  poststr = ' in testing mode' if main.testing or main.camera.testing else ''
+  main.output.log('Experiment beginning' + poststr)
+
   try:
     main.begin_experiment()
   except Exception as err:

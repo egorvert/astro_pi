@@ -25,6 +25,7 @@ class CameraController(MetricController):
     super().__init__(0.1, 'camera')
     self.con = con
     self.sense = con.sense
+    self.testing = test_camera
 
     # Divisions are the number of sections to split the image into for separate
     # intensity values. E.g.: 3 would cause it to be cut into a 3x3 grid
