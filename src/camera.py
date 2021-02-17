@@ -1,4 +1,3 @@
-# Egor and Stepan
 import numpy as np
 
 from src.metric import MetricController

@@ -1,5 +1,5 @@
-# Greg and Alan
 from math import sqrt
+
 from src.metric import MetricController
 
 

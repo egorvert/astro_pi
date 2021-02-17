@@ -1,7 +1,10 @@
-import random, requests, os
-from PIL import Image
+import os
+import random
 from pathlib import Path
+
 import numpy as np
+import requests
+from PIL import Image
 
 
 def rand():

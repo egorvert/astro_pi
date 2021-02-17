@@ -1,4 +1,3 @@
-# Egor and Stepan
 from time import sleep
 
 
@@ -42,7 +41,5 @@ class MatrixController():
       return
     self.sense.load_image(self.frame_queue.pop(0))
 
-  def start_sequence(
-    self, cam_changed: bool, acc_changed: bool, gyro_changed: bool
-  ):
+  def start_sequence(self, cam_changed: bool, acc_changed: bool, gyro_changed: bool):
     pass
