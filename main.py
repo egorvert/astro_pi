@@ -76,6 +76,8 @@ if __name__ == '__main__':
     main.begin_experiment()
   except Exception as err:
     main.output.log('Experiment ceased unexpectedly', err)
+  except KeyboardInterrupt:
+    main.output.log('Experiment halted manually')
   else:
     main.output.log('Experiment has completed successfully')
   finally:
