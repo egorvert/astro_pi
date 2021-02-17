@@ -7,6 +7,42 @@ class MatrixController():
   :param con: Reference to main controller
   :type con: main.Controller
   """
+
+
+  idleFM = [
+    ["idle_fm0.png",2500],
+    ["idle_fm1.png",150],
+    ["idle_fm_2.png",1000],
+    ["idle_fm_3.png",100],
+    ["idle_fm_4.png", 1000],
+    ["idle_fm_5.png",100]
+    ]
+    
+  cameraReactionFM = [
+    ["surprised_fm_0.png",1000],
+    ["surprised_fm_1.png",150],
+    ["surprised_fm_2.png",500],
+    ["surprised_fm_3.png",150],
+    ["surprised_fm_4.png",1000],
+    ["surprised_fm_5.png",150],
+    ["surprised_fm_6.png",1000]
+    ]
+
+  accelFM = [
+    "accelerometer-frame-1.png",
+    "accelerometer-frame-2.png"]
+
+  gyroFM = [
+    "gyroscope-frame-1.png",
+    "gyroscope-frame-2.png",
+    "gyroscope-frame-3.png",
+    "gyroscope-frame-4.png",
+    "gyroscope-frame-5.png",
+    "gyroscope-frame-6.png"
+    ]
+  
+  
+  
   def __init__(self, con):
     self.con = con
     self.sense = con.sense
