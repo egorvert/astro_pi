@@ -26,20 +26,41 @@ class CameraController(MetricController):
     self.sense = con.sense
     self.testing = test_camera
 
+    self.w = 640
+    self.h = 480
+
     # Divisions are the number of sections to split the image into for separate
     # intensity values. E.g.: 3 would cause it to be cut into a 3x3 grid
-    self.divisions = 4
+    self.divisions = 2
+
+  @property
+  def gridw(self):
+    return int(self.w / self.divisions)
+
+  @property
+  def gridh(self):
+    return int(self.h / self.divisions)
 
   def measure_value(self) -> tuple[float]:
-    with PiCamera(resolution=(640, 480)) as camera:
-      pixels = np.empty((480, 640, 3), dtype=np.uint8)
+    with PiCamera(resolution=(self.w, self.h)) as camera:
+      pixels = np.empty((self.h, self.w, 3), dtype=np.uint8)
       camera.capture(pixels, 'rgb')
-      # TODO: Split the pixels into equal sections based on self.divisions
-      # TODO: Calculate intensity of each section with self.calc_average_intensity()
-    return (1, 1, 1, 1)  # TODO: Return tuple of intensities
+      return self.fragment_pixels(pixels)
 
-  def calc_average_intensity(self, section: np.ndarray) -> float:
-    return 1  # TODO: Calculate the average intensity of the array
+  def fragment_pixels(self, pixels: np.ndarray) -> list[float]:
+    intensities = []
+    for i in range(0, self.h, self.gridh):
+      for j in range(0, self.w, self.gridw):
+        height_slice = pixels[i:i + self.gridh]
+        width_slice = map(lambda x: x[j:j + self.gridw], height_slice)
+        intensity = self.calc_average_intensity(width_slice)
+        intensities.append(intensity)
+    return intensities
+
+  def calc_average_intensity(self, section) -> float:
+    flat_list = [item for sublist in section for item in sublist]
+    intensities = [sum(rgb) / (255 * 3) for rgb in flat_list]
+    return sum(intensities) / len(intensities)
 
   def check_deviance(self, new_value: tuple[float]) -> bool:
     if len(self.history) < 3:
