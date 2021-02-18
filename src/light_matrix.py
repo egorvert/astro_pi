@@ -24,8 +24,10 @@ class FrameSequence:
 
   accel = [
     ['rocket/1.png', 250],
-    ['rocket/2.png', 250]
-  ] * 6
+    ['rocket/2.png', 250],
+    ['rocket/3.png', 250],
+    ['rocket/4.png', 250]
+  ] * 3
 
   gyro = [
     ['teetotum/1.png', 250],
