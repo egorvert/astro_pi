@@ -30,28 +30,6 @@ class CameraController(MetricController):
     # intensity values. E.g.: 3 would cause it to be cut into a 3x3 grid
     self.divisions = 4
 
-  def capture(self):  #this needs to be done for example every 5 seconds
-    i = 1  #this should be put in the main loop
-    #2 different arrays to capture 2 frames in so that they can be compared
-    output1 = np.empty((480, 640, 3), dtype=np.uint8)
-    #this sould stay out of the main loop so that they are only made once
-    output2 = np.empty((480, 640, 3), dtype=np.uint8)
-    camera.capture_effects = (128.128)
-    camera.resolution = (640, 480)
-    if i % 2 != 0:
-      camera.capture(output1, 'rgb')
-    else:
-      camera.capture(output2, 'rgb')
-
-    if i % 2 == 0:
-      differences = np.subtract(output2, output1)
-      print(differences)
-    elif i % 2 != 0 and i != 1:
-      differences = np.subtract(output1, output2)
-    i += 1
-    sleep(5)  #captures 2 frames 5 seconds apart
-    camera.close()
-
   def measure_value(self) -> tuple[float]:
     with PiCamera(resolution=(640, 480)) as camera:
       pixels = np.empty((480, 640, 3), dtype=np.uint8)
