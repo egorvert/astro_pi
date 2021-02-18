@@ -35,11 +35,12 @@ class Controller:
     self.accelerometer = AccelerometerController(self)
     self.gyroscope = GyroscopeController(self)
 
-  def begin_experiment(self, framerate: int = 10, measure_period: int = 5, duration: int = 178):
+  def begin_experiment(self, framerate: int = 20, measure_period: int = 5, duration: int = 178):
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
     """
     print('Ooga booga im in space')
+    self.light_matrix.set_framerate(framerate)
     framecount = 0
     end_time = datetime.now() + timedelta(minutes=duration)
     while datetime.now() < end_time:
