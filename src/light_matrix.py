@@ -1,49 +1,49 @@
 from time import sleep
 
 
-class MatrixController():
+class FrameSequence:
+  # yapf: disable
+  idle = [
+    ['face/smile.png', 2500],
+    ['face/flat.png',  150 ],
+    ['face/right.png', 1000],
+    ['face/flat.png',  100 ],
+    ['face/left.png',  1000],
+    ['face/flat.png',  100 ]
+  ]
+
+  camera = [
+    ['face/smile.png',     1000],
+    ['face/flat.png',      150 ],
+    ['face/openbig.png',   500 ],
+    ['face/opensmall.png', 150 ],
+    ['face/openbig.png',   1000],
+    ['face/opensmall.png', 150 ],
+    ['face/openbig.png',   1000]
+  ]
+
+  accel = [
+    ['rocket/1.png', 250],
+    ['rocket/2.png', 250]
+  ] * 6
+
+  gyro = [
+    ['teetotum/1.png', 250],
+    ['teetotum/2.png', 250],
+    ['teetotum/3.png', 250],
+    ['teetotum/4.png', 250],
+    ['teetotum/5.png', 250],
+    ['teetotum/6.png', 250]
+  ] * 3
+  # yapf: enable
+
+
+class MatrixController:
   """Controller for methods and data related to the light matrix
 
   :param con: Reference to main controller
   :type con: main.Controller
   """
-
-
-  idleFM = [
-    ["idle_fm_0.png",2500],
-    ["idle_fm_1.png",150],
-    ["idle_fm_2.png",1000],
-    ["idle_fm_3.png",100],
-    ["idle_fm_4.png", 1000],
-    ["idle_fm_5.png",100]
-    ]
-
-  cameraReactionFM = [
-    ["surprised_fm_0.png",1000],
-    ["surprised_fm_1.png",150],
-    ["surprised_fm_2.png",500],
-    ["surprised_fm_3.png",150],
-    ["surprised_fm_4.png",1000],
-    ["surprised_fm_5.png",150],
-    ["surprised_fm_6.png",1000]
-    ]
-
-  accelFM = [
-    "accelerometer-frame-1.png",
-    "accelerometer-frame-2.png"
-    ]
-
-  gyroFM = [
-    "gyroscope-frame-1.png",
-    "gyroscope-frame-2.png",
-    "gyroscope-frame-3.png",
-    "gyroscope-frame-4.png",
-    "gyroscope-frame-5.png",
-    "gyroscope-frame-6.png"
-    ]
-  
-  
-  
   def __init__(self, con):
     self.con = con
     self.sense = con.sense
