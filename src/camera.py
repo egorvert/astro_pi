@@ -1,3 +1,11 @@
+###########################################################
+##   Code relating to the PiCamera module is untested    ##
+##   due to our team not having access to the testing    ##
+##   RaspberryPi. Therefore it would be appreciated if   ##
+##     this could be taken into consideration during     ##
+##  testing phases. Thanks from the underscore team. :)  ##
+###########################################################
+
 import numpy as np
 
 from src.metric import MetricController
