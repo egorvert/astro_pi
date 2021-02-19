@@ -10,7 +10,8 @@ class AccelerometerController(MetricController):
   :type con: main.Controller
   """
   def __init__(self, con):
-    super().__init__(0.25, 'accelerometer')
+    dev = (2 * 3**0.5) * (0.3 if con.testing else 0.05)
+    super().__init__(dev, 'accelerometer')
     self.con = con
     self.sense = con.sense
 

@@ -54,12 +54,18 @@ class MatrixController:
   def set_framerate(self, framerate: int):
     self.timeperiod = 1000 / framerate
 
+  def load_image(self, image: str):
+    try:
+      self.sense.load_image(image)
+    except Exception as err:
+      self.con.output.log(f'Could not show frame "{image}"', err)
+
   def update(self):
     if self.frame_time_left <= 0:
       if len(self.frame_queue) == 0:
         self.frame_queue += FrameSequence.idle
       frame = self.frame_queue.pop(0)
-      self.sense.load_image(frame[0])
+      self.load_image(frame[0])
       self.frame_time_left = frame[1]
     else:
       self.frame_time_left -= self.timeperiod

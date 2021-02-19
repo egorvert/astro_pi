@@ -32,7 +32,12 @@ class OutputController:
 
     :param data: Data to record
     """
-    with open(OutputController.FILENAME, 'a', newline='') as f:
-      writer = csv.writer(f)
-      writer.writerows(map(lambda r: r.csv_row, self.backlog + data))
-    self.backlog.clear()
+    try:
+      with open(OutputController.FILENAME, 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(map(lambda r: r.csv_row, self.backlog + data))
+    except Exception as err:
+      self.log('Something went wrong recording the results', err)
+      self.backlog += data
+    else:
+      self.backlog.clear()

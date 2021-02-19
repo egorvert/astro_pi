@@ -3,8 +3,12 @@ import random
 from pathlib import Path
 
 import numpy as np
-import requests
 from PIL import Image
+
+try:
+  import requests
+except:
+  requests = None
 
 
 def rand():
@@ -43,6 +47,10 @@ class PiCamera:
     pass
 
   def capture(self, output, *args, **kwargs):
+    if requests is None:
+      output.fill(0)
+      return
+
     Path("temp/img").mkdir(parents=True, exist_ok=True)
 
     filename = f'temp/img/{randstr()}.jpg'

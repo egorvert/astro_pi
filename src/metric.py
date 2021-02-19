@@ -16,8 +16,7 @@ class MetricRecord:
     return [
       str(self.time), self.source,
       str(self.value), '1' if self.is_deviant else '0',
-      f'{type(self.error).__name__}: {str(self.error)}'
-      if self.error is not None else ''
+      f'{type(self.error).__name__}: {str(self.error)}' if self.error is not None else ''
     ]
 
 
@@ -71,18 +70,16 @@ class MetricController:
     it paird with metadata about the record"""
     try:
       value = self.measure_value()
-      is_deviant = self.check_deviance(value)
-      self.history.append(value)
-      error = None
     except Exception as err:
       self.con.output.log('Something went wrong when measuring ' + self.source)
       value = 0
       error = err
       is_deviant = False
-    return MetricRecord(
-      time=datetime.now(),
-      source=self.source,
-      value=value,
-      is_deviant=is_deviant,
-      error=error
-    )
+    else:
+      is_deviant = self.check_deviance(value)
+      self.history.append(value)
+      error = None
+    finally:
+      return MetricRecord(
+        time=datetime.now(), source=self.source, value=value, is_deviant=is_deviant, error=error
+      )
