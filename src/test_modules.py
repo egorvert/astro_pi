@@ -6,6 +6,9 @@ import numpy as np
 from PIL import Image
 
 try:
+  # Note: This code will not run on the Raspberry Pi in space,
+  #       it is only here for testing purposes and the program
+  #       will run perfectly fine with no requests module installed.
   import requests
 except:
   requests = None
