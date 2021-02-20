@@ -21,7 +21,7 @@ python main.py
 *Note that this assumes that `python` and `pip` are already saved in PATH and correspond to the correct Python3 .exe files*
 
 ## Documentation Development
-The code for this project is documented using [Sphynx](https://www.sphinx-doc.org/). This autogenerates documentation for the project by collating the docstrings of classes and functions in the code and formatting it into a dynamic web page. This can be found in the `docs/` folder.
+The code for this project is documented using [Sphinx](https://www.sphinx-doc.org/). This autogenerates documentation for the project by collating the docstrings of classes and functions in the code and formatting it into a dynamic web page. This can be found in the `docs/` folder.
 
 To rebuild the documentation run the following command.
 ```
