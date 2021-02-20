@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Output &mdash; Wellington College Astro Pi Docs</title>
+  <title>Output &mdash; Astro Pi Docs</title>
   
 
   
@@ -100,6 +100,7 @@
 <p class="caption"><span class="caption-text">Other:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="frames.html">Light Matrix Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output_format.html">Output Format</a></li>
 </ul>
 
             
@@ -167,9 +168,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-src.output">
-<span id="output"></span><h1>Output<a class="headerlink" href="#module-src.output" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+  <div class="section" id="output">
+<h1>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h1>
+<p>This section of the program handles all logging and recording of measurements. It writes all output
+to a file called <code class="docutils literal notranslate"><span class="pre">data.csv</span></code>. The file is written to in a <a class="reference internal" href="output_format.html#output-format"><span class="std std-ref">uniform format</span></a>
+that allows the data to be easily read and filtered by a program.</p>
+<span class="target" id="module-src.output"></span><span class="target" id="output-controller"></span><dl class="py class">
 <dt id="src.output.OutputController">
 <em class="property">class </em><code class="sig-prename descclassname">src.output.</code><code class="sig-name descname">OutputController</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">con</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.output.OutputController" title="Permalink to this definition">¶</a></dt>
 <dd><p>Controller that manages data collected being saved to local files</p>

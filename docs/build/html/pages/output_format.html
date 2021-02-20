@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Output Format &mdash; Astro Pi Docs</title>
+  
+
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script src="../static/jquery.js"></script>
+        <script src="../static/underscore.js"></script>
+        <script src="../static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Light Matrix Frames" href="frames.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wellington College Astro Pi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main Classes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_modules.html">Dummy Modules</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="frames.html">Light Matrix Frames</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Output Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#columns">Columns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#timestamp">Timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source">Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#content">Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deviance">Deviance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error">Error</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wellington College Astro Pi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Output Format</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../sources/pages/output_format.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="output-format">
+<span id="id1"></span><h1>Output Format<a class="headerlink" href="#output-format" title="Permalink to this headline">¶</a></h1>
+<p>The data saved in <code class="docutils literal notranslate"><span class="pre">data.csv</span></code> must be kept in a uniform format to allow the large
+collection of data to be easily sifted through afterwards by a program. The format is
+upheld due to the protocol of merging the data into a <code class="docutils literal notranslate"><span class="pre">MetricRecord</span></code> object before
+writing it to the file, as the class automatically formats the supplied data into
+the shape expected by the csv writer.</p>
+<p>The format of each line is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timestamp</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="n">content</span><span class="p">,</span><span class="n">deviance</span><span class="p">,</span><span class="n">error</span>
+
+<span class="n">Examples</span><span class="p">:</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">20</span> <span class="mi">03</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mf">31.176709</span><span class="p">,</span><span class="n">log</span><span class="p">,</span><span class="n">Experiment</span> <span class="n">beginning</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">20</span> <span class="mi">03</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mf">34.481528</span><span class="p">,</span><span class="n">camera</span><span class="p">,</span><span class="mf">0.8539240536487881</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">16</span> <span class="mi">17</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">54.076496</span><span class="p">,</span><span class="n">log</span><span class="p">,</span><span class="n">Experiment</span> <span class="n">ceased</span> <span class="n">unexpectedly</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;framcount&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<div class="section" id="columns">
+<h2>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="timestamp">
+<h3>Timestamp<a class="headerlink" href="#timestamp" title="Permalink to this headline">¶</a></h3>
+<p>Every record is preceeded with the time at which the row was created. The time is given as
+the standard ISO format including microseconds. These must be included not only for to allow
+the resulting measurements to be modelled on a graph, but also the rows will not be in order.</p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">OutputController</span></code> handles logged messages in <a class="reference internal" href="output.html#output-controller"><span class="std std-ref">a lazy style</span></a>,
+some records that have been on the backlog for significant time could be added after new measurements.</p>
+</div>
+<div class="section" id="source">
+<h3>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h3>
+<p>The source column is present to make filtering data records easier. The source can be one of a few values
+as listed below:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>log</p></td>
+<td><p>A general message about the program’s health and/or processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accelerometer</p></td>
+<td><p>Applied to records that either hold measurements from the accelerometer, or errors that occured when measuring it.</p></td>
+</tr>
+<tr class="row-even"><td><p>camera</p></td>
+<td><p>Applied to records that either hold measurements from the camera, or errors that occured when measuring it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>gyroscope</p></td>
+<td><p>Applied to records that either hold measurements from the gyroscope, or errors that occured when measuring it.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="content">
+<h3>Content<a class="headerlink" href="#content" title="Permalink to this headline">¶</a></h3>
+<p>This is the main body of the row. It is either the value(s) measured from a component or it
+is the main message of the log.</p>
+</div>
+<div class="section" id="deviance">
+<h3>Deviance<a class="headerlink" href="#deviance" title="Permalink to this headline">¶</a></h3>
+<p>This is only ever one of two values: 0 or 1. It is 0 in almost all cases including whenever the record
+is not a measurement. However it is 1 when the record contains a measurement <strong>and</strong> calculated this/these
+value(s) to be deviant compared to the previous values.</p>
+<p>The first 3 recorded measurements will always have a deviance of 0, as it only begins checking deviation once
+a history of records has been built up.</p>
+</div>
+<div class="section" id="error">
+<h3>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h3>
+<p>Hopefully once the data is received back from the ISS, this column will be empty by all rows. However, in the
+event that something goes wrong in the program, we will want to see when and where this error occured. This
+is especially helpful during development as well.</p>
+<p>It is given in the format <code class="docutils literal notranslate"><span class="pre">&lt;Type</span> <span class="pre">of</span> <span class="pre">Error&gt;:</span> <span class="pre">&lt;Error</span> <span class="pre">Message&gt;</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="frames.html" class="btn btn-neutral float-left" title="Light Matrix Frames" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Adam Heal, Gregor Maclaine, Stepan Mikoyan, Ben Nason, Egor Vert, Yichen Xu.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

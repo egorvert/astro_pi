@@ -7,7 +7,7 @@ Light Matrix Frames
 size for this page. In reality the images were made in pixel art with distinct colours and minimal blur.*
 
 Face Frames
-***********
+-----------
 
 These frames are used for the main idle sequence and also the suprised look when the program
 measures a devience in light intensity.
@@ -37,7 +37,7 @@ measures a devience in light intensity.
   :alt: Suprised to larger extent
 
 Rocket Frames
-*************
+-------------
 
 These frames are used to denote a measured deviance in acceleration.
 It aims to convey an accelerating rocket.
@@ -59,7 +59,7 @@ It aims to convey an accelerating rocket.
   :alt: The fourth and final rocket frame
 
 Teetotum Frames
-***************
+---------------
 
 These frames are used to denote a measured deviance in orientation.
 It aims to convey a spinning top (*or teetotum*) that is chaning in orientation.

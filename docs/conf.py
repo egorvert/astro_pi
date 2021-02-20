@@ -21,7 +21,7 @@ copyright = '2021, Adam Heal, Gregor Maclaine, Stepan Mikoyan, Ben Nason, Egor V
 author = 'Adam Heal, Gregor Maclaine, Stepan Mikoyan, Ben Nason, Egor Vert, Yichen Xu'
 
 # The full version, including alpha/beta/rc tags
-html_title = 'Wellington College Astro Pi Docs'
+html_title = 'Astro Pi Docs'
 release = '1.0.1'
 
 # -- General configuration ---------------------------------------------------
