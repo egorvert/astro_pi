@@ -9,19 +9,20 @@ On submition, the code should be compiled to one file; the code itself should no
 
 .. toctree::
 	:maxdepth: 2
-	:caption: Components:
+	:caption: Main Classes:
 	
-	accelerometer
-	camera
-	gyroscope
-	light_matrix
+	pages/metric
+	pages/light_matrix
+	pages/output
+	pages/test_modules
 
 .. toctree::
 	:maxdepth: 2
-	:caption: Other Classes:
+	:caption: Components:
 	
-	metric
-	output
+	pages/accelerometer
+	pages/camera
+	pages/gyroscope
 
 Main Controller
 ***************
