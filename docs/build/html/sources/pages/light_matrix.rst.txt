@@ -5,3 +5,6 @@ Light Matrix
 
 .. autoclass:: MatrixController
 	:members:
+
+.. autoclass:: FrameSequence
+	:members:

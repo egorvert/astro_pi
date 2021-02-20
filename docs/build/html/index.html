@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Accelerometer" href="accelerometer.html" /> 
+    <link rel="next" title="Metric Base Class" href="pages/metric.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,17 +83,18 @@
               
             
             
-              <p class="caption"><span class="caption-text">Components:</span></p>
+              <p class="caption"><span class="caption-text">Main Classes:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/metric.html">Metric Base Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/test_modules.html">Dummy Modules</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Classes:</span></p>
+<p class="caption"><span class="caption-text">Components:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/camera.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/gyroscope.html">Gyroscope</a></li>
 </ul>
 
             
@@ -168,19 +169,20 @@ These components are connected together via references in a main <cite>Controlle
 <p>On submition, the code should be compiled to one file; the code itself should not have to be modified.</p>
 <p><a class="reference external" href="https://github.com/Melon-Bowl/astro_pi">See the code for the project here</a></p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Components:</span></p>
+<p class="caption"><span class="caption-text">Main Classes:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/metric.html">Metric Base Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/test_modules.html">Dummy Modules</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Other Classes:</span></p>
+<p class="caption"><span class="caption-text">Components:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/camera.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/gyroscope.html">Gyroscope</a></li>
 </ul>
 </div>
 <div class="section" id="module-main">
@@ -193,9 +195,18 @@ These components are connected together via references in a main <cite>Controlle
 Only big-picture experiment administration should be put here</p>
 <dl class="py method">
 <dt id="main.Controller.begin_experiment">
-<code class="sig-name descname">begin_experiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Controller.begin_experiment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">begin_experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">framerate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">20</span></em>, <em class="sig-param"><span class="n">measure_period</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">5</span></em>, <em class="sig-param"><span class="n">duration</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">178</span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Controller.begin_experiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handles the main loop of the experiment. Calls all components
 and directs their results to the output controller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>framerate</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of times to iterate the main loop per second, defaults to 20</p></li>
+<li><p><strong>measure_period</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of seconds to wait between measuring components, defaults to 5</p></li>
+<li><p><strong>duration</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of minutes that the experiment should run for, defaults to 178</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -209,7 +220,7 @@ and directs their results to the output controller</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="accelerometer.html" class="btn btn-neutral float-right" title="Accelerometer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pages/metric.html" class="btn btn-neutral float-right" title="Metric Base Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

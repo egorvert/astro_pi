@@ -82,17 +82,18 @@
               
             
             
-              <p class="caption"><span class="caption-text">Components:</span></p>
+              <p class="caption"><span class="caption-text">Main Classes:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gyroscope.html">Gyroscope</a></li>
-<li class="toctree-l1"><a class="reference internal" href="light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/metric.html">Metric Base Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/light_matrix.html">Light Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/test_modules.html">Dummy Modules</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Classes:</span></p>
+<p class="caption"><span class="caption-text">Components:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="metric.html">Metric Base Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/camera.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/gyroscope.html">Gyroscope</a></li>
 </ul>
 
             
@@ -165,17 +166,21 @@
  <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="accelerometer.html#src.accelerometer.AccelerometerController">AccelerometerController (class in src.accelerometer)</a>
+      <li><a href="pages/accelerometer.html#src.accelerometer.AccelerometerController">AccelerometerController (class in src.accelerometer)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -191,13 +196,39 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="camera.html#src.camera.CameraController">CameraController (class in src.camera)</a>
+      <li><a href="pages/camera.html#src.camera.CameraController.calc_average_intensity">calc_average_intensity() (src.camera.CameraController method)</a>
+</li>
+      <li><a href="pages/camera.html#src.camera.CameraController">CameraController (class in src.camera)</a>
+</li>
+      <li><a href="pages/test_modules.html#src.test_modules.PiCamera.capture">capture() (src.test_modules.PiCamera method)</a>
+</li>
+      <li><a href="pages/accelerometer.html#src.accelerometer.AccelerometerController.check_deviance">check_deviance() (src.accelerometer.AccelerometerController method)</a>
+
+      <ul>
+        <li><a href="pages/camera.html#src.camera.CameraController.check_deviance">(src.camera.CameraController method)</a>
+</li>
+        <li><a href="pages/metric.html#src.metric.MetricController.check_deviance">(src.metric.MetricController method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/metric.html#src.metric.MetricController.check_deviance_number">check_deviance_number() (src.metric.MetricController method)</a>
+</li>
+      <li><a href="pages/metric.html#src.metric.MetricController.check_deviance_tuple">check_deviance_tuple() (src.metric.MetricController method)</a>
+</li>
+      <li><a href="index.html#main.Controller">Controller (class in main)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/camera.html#src.camera.CameraController.fragment_pixels">fragment_pixels() (src.camera.CameraController method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="metric.html#src.metric.MetricController.check_deviance">check_deviance() (src.metric.MetricController method)</a>
-</li>
-      <li><a href="index.html#main.Controller">Controller (class in main)</a>
+      <li><a href="pages/light_matrix.html#src.light_matrix.FrameSequence">FrameSequence (class in src.light_matrix)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -205,7 +236,29 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="gyroscope.html#src.gyroscope.GyroscopeController">GyroscopeController (class in src.gyroscope)</a>
+      <li><a href="pages/test_modules.html#src.test_modules.SenseHat.get_accelerometer_raw">get_accelerometer_raw() (src.test_modules.SenseHat method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/test_modules.html#src.test_modules.SenseHat.get_gyroscope_raw">get_gyroscope_raw() (src.test_modules.SenseHat method)</a>
+</li>
+      <li><a href="pages/gyroscope.html#src.gyroscope.GyroscopeController">GyroscopeController (class in src.gyroscope)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/light_matrix.html#src.light_matrix.MatrixController.load_image">load_image() (src.light_matrix.MatrixController method)</a>
+
+      <ul>
+        <li><a href="pages/test_modules.html#src.test_modules.SenseHat.load_image">(src.test_modules.SenseHat method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/output.html#src.output.OutputController.log">log() (src.output.OutputController method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -220,35 +273,45 @@
         <li><a href="index.html#module-main">module</a>
 </li>
       </ul></li>
-      <li><a href="light_matrix.html#src.light_matrix.MatrixController">MatrixController (class in src.light_matrix)</a>
+      <li><a href="pages/light_matrix.html#src.light_matrix.MatrixController">MatrixController (class in src.light_matrix)</a>
 </li>
-      <li><a href="metric.html#src.metric.MetricController.measure">measure() (src.metric.MetricController method)</a>
+      <li><a href="pages/metric.html#src.metric.MetricController.measure">measure() (src.metric.MetricController method)</a>
 </li>
-      <li><a href="metric.html#src.metric.MetricController.measure_value">measure_value() (src.metric.MetricController method)</a>
+      <li><a href="pages/accelerometer.html#src.accelerometer.AccelerometerController.measure_value">measure_value() (src.accelerometer.AccelerometerController method)</a>
+
+      <ul>
+        <li><a href="pages/camera.html#src.camera.CameraController.measure_value">(src.camera.CameraController method)</a>
 </li>
-      <li><a href="metric.html#src.metric.MetricController">MetricController (class in src.metric)</a>
+        <li><a href="pages/gyroscope.html#src.gyroscope.GyroscopeController.measure_value">(src.gyroscope.GyroscopeController method)</a>
 </li>
-      <li><a href="metric.html#src.metric.MetricRecord">MetricRecord (class in src.metric)</a>
+        <li><a href="pages/metric.html#src.metric.MetricController.measure_value">(src.metric.MetricController method)</a>
+</li>
+      </ul></li>
+      <li><a href="pages/metric.html#src.metric.MetricController">MetricController (class in src.metric)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/metric.html#src.metric.MetricRecord">MetricRecord (class in src.metric)</a>
+</li>
       <li>
     module
 
       <ul>
         <li><a href="index.html#module-main">main</a>
 </li>
-        <li><a href="accelerometer.html#module-src.accelerometer">src.accelerometer</a>
+        <li><a href="pages/accelerometer.html#module-src.accelerometer">src.accelerometer</a>
 </li>
-        <li><a href="camera.html#module-src.camera">src.camera</a>
+        <li><a href="pages/camera.html#module-src.camera">src.camera</a>
 </li>
-        <li><a href="gyroscope.html#module-src.gyroscope">src.gyroscope</a>
+        <li><a href="pages/gyroscope.html#module-src.gyroscope">src.gyroscope</a>
 </li>
-        <li><a href="light_matrix.html#module-src.light_matrix">src.light_matrix</a>
+        <li><a href="pages/light_matrix.html#module-src.light_matrix">src.light_matrix</a>
 </li>
-        <li><a href="metric.html#module-src.metric">src.metric</a>
+        <li><a href="pages/metric.html#module-src.metric">src.metric</a>
 </li>
-        <li><a href="output.html#module-src.output">src.output</a>
+        <li><a href="pages/output.html#module-src.output">src.output</a>
+</li>
+        <li><a href="pages/test_modules.html#module-src.test_modules">src.test_modules</a>
 </li>
       </ul></li>
   </ul></td>
@@ -257,7 +320,15 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="output.html#src.output.OutputController">OutputController (class in src.output)</a>
+      <li><a href="pages/output.html#src.output.OutputController">OutputController (class in src.output)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/test_modules.html#src.test_modules.PiCamera">PiCamera (class in src.test_modules)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -265,7 +336,7 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="output.html#src.output.OutputController.record_results">record_results() (src.output.OutputController method)</a>
+      <li><a href="pages/output.html#src.output.OutputController.record_results">record_results() (src.output.OutputController method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -273,25 +344,29 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/test_modules.html#src.test_modules.SenseHat">SenseHat (class in src.test_modules)</a>
+</li>
+      <li><a href="pages/light_matrix.html#src.light_matrix.MatrixController.set_framerate">set_framerate() (src.light_matrix.MatrixController method)</a>
+</li>
       <li>
     src.accelerometer
 
       <ul>
-        <li><a href="accelerometer.html#module-src.accelerometer">module</a>
+        <li><a href="pages/accelerometer.html#module-src.accelerometer">module</a>
 </li>
       </ul></li>
       <li>
     src.camera
 
       <ul>
-        <li><a href="camera.html#module-src.camera">module</a>
+        <li><a href="pages/camera.html#module-src.camera">module</a>
 </li>
       </ul></li>
       <li>
     src.gyroscope
 
       <ul>
-        <li><a href="gyroscope.html#module-src.gyroscope">module</a>
+        <li><a href="pages/gyroscope.html#module-src.gyroscope">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -300,23 +375,40 @@
     src.light_matrix
 
       <ul>
-        <li><a href="light_matrix.html#module-src.light_matrix">module</a>
+        <li><a href="pages/light_matrix.html#module-src.light_matrix">module</a>
 </li>
       </ul></li>
       <li>
     src.metric
 
       <ul>
-        <li><a href="metric.html#module-src.metric">module</a>
+        <li><a href="pages/metric.html#module-src.metric">module</a>
 </li>
       </ul></li>
       <li>
     src.output
 
       <ul>
-        <li><a href="output.html#module-src.output">module</a>
+        <li><a href="pages/output.html#module-src.output">module</a>
 </li>
       </ul></li>
+      <li>
+    src.test_modules
+
+      <ul>
+        <li><a href="pages/test_modules.html#module-src.test_modules">module</a>
+</li>
+      </ul></li>
+      <li><a href="pages/light_matrix.html#src.light_matrix.MatrixController.start_sequence">start_sequence() (src.light_matrix.MatrixController method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pages/light_matrix.html#src.light_matrix.MatrixController.update">update() (src.light_matrix.MatrixController method)</a>
+</li>
   </ul></td>
 </tr></table>
 
