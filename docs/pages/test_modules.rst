@@ -1,4 +1,4 @@
-Dummy Modules for Testing
+Dummy Modules
 =========================
 
 The file ``src/test_modules.py`` contains classes that should only be used in testing.
