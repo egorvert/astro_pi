@@ -11,6 +11,9 @@ if exist "build/html/static" (
 if exist "build/html/sources" (
 	move "build/html/sources" "build/html/_sources"
 )
+if exist "build/html/images" (
+	move "build/html/images" "build/html/_images"
+)
 
 REM Command file for Sphinx documentation
 
