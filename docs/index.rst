@@ -24,6 +24,12 @@ On submition, the code should be compiled to one file; the code itself should no
 	pages/camera
 	pages/gyroscope
 
+.. toctree::
+	:maxdepth: 2
+	:caption: Other:
+	
+	pages/frames
+
 Main Controller
 ***************
 
