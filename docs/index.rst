@@ -29,6 +29,7 @@ On submition, the code should be compiled to one file; the code itself should no
 	:caption: Other:
 	
 	pages/frames
+	pages/output_format
 
 Main Controller
 ***************
