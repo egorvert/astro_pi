@@ -24,6 +24,7 @@ except:
 
 class CameraController(MetricController):
   """Controller for methods and data related to the light sensor/camera.
+  Inherits from the ``MetricController`` class.
     
   :param con: Reference to main controller
   :type con: main.Controller
@@ -50,12 +51,26 @@ class CameraController(MetricController):
     return int(self.h / self.divisions)
 
   def measure_value(self) -> tuple[float]:
+    """Captures an image from the connected camera, cuts it into a grid like layout,
+    and returns the average light intensities of each grid square.
+
+    :return: A tuple of intensity values ranging from 0 to 1
+    :rtype: tuple[float]
+    """
     with PiCamera(resolution=(self.w, self.h)) as camera:
       pixels = np.empty((self.h, self.w, 3), dtype=np.uint8)
       camera.capture(pixels, 'rgb')
       return self.fragment_pixels(pixels)
 
   def fragment_pixels(self, pixels: np.ndarray) -> list[float]:
+    """Breaks up a large 3d array into a grid like layout and returns the average
+    intensities of each grid square.
+
+    :param pixels: A 3d numpy array of dimensions: width, height, 3 (for RGB values)
+    :type pixels: np.ndarray
+    :return: An array of intensities ranging from 0 to 1
+    :rtype: list[float]
+    """
     intensities = []
     for i in range(0, self.h, self.gridh):
       for j in range(0, self.w, self.gridw):
@@ -66,11 +81,26 @@ class CameraController(MetricController):
     return intensities
 
   def calc_average_intensity(self, section) -> float:
+    """Calculates the average light intensity of a 3d array.
+
+    :param section: A 3d numpy array of dimensions: width, height, 3 (for RGB values)
+    :type section: np.ndarray
+    :return: The average light intensity
+    :rtype: float
+    """
     flat_list = [item for sublist in section for item in sublist]
     intensities = [sum(rgb) / (255 * 3) for rgb in flat_list]
     return sum(intensities) / len(intensities)
 
   def check_deviance(self, new_value: tuple[float]) -> bool:
+    """Calculates whether there was a deviance in light intensity of any
+    of the grid squares.
+
+    :param new_value: The new list of intensities
+    :type new_value: tuple[float]
+    :return: Whether there was a deviance in intensities
+    :rtype: bool
+    """
     if len(self.history) < 3:
       return False
 
