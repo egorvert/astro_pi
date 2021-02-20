@@ -68,7 +68,7 @@ class MatrixController:
     :type image: str
     """
     try:
-      self.sense.load_image(image)
+      self.sense.load_image('src/img/' + image)
     except Exception as err:
       self.con.output.log(f'Could not show frame "{image}"', err)
 

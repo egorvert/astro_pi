@@ -44,7 +44,8 @@ class SenseHat:
 
   def load_image(self, file_path, redraw=True):
     """Simulates loading an image into the LED matrix. Actually does nothing"""
-    pass
+    with open(file_path, 'r') as f:
+      pass
 
 
 class PiCamera:
