@@ -4,7 +4,7 @@ from datetime import datetime
 
 @dataclass
 class MetricRecord:
-  """Class that holds the information about a single point of data from a component"""
+  """Class that formats a group of information into a row to write to the output csv file"""
   time: datetime
   source: str
   value: float
@@ -25,6 +25,9 @@ class MetricController:
   and analysing them for spikes in values.
 
   :param deviance_value: Minimum value that would count for a change
+  :type deviance_value: float
+  :param source: The name of the hardware component to label the row in the output
+  :type source: str
   """
   def __init__(self, deviance_value: float, source: str = 'a sensor'):
     self.deviance_value = deviance_value
@@ -39,10 +42,12 @@ class MetricController:
     return 0.0
 
   def check_deviance(self, new_value) -> bool:
-    """Compares a new value to the average of the previous values.\n
-    If there is a notable deviance (Above self.deviance_value)
+    """Compares whether a new value has deviated from the previous records.
+    Works with either a 3d vector or single numbers.
 
     :param new_value: The new value to check
+    :return: Whether there was a deviance in values
+    :rtype: bool
     """
     if len(self.history) < 3:
       return False
@@ -55,10 +60,27 @@ class MetricController:
     return False
 
   def check_deviance_number(self, new_value: float) -> bool:
+    """Compares a new value to the average of the previous values.\n
+    If there is a notable deviance (Above self.deviance_value)
+
+    :param new_value: A value to compare
+    :type new_value: float
+    :return: Whether there was a deviance in values
+    :rtype: bool
+    """
     average = sum(self.history[-3:]) / 3
     return abs(new_value - average) >= self.deviance_value
 
-  def check_deviance_tuple(self, new_value: tuple) -> bool:
+  def check_deviance_tuple(self, new_value: tuple[float]) -> bool:
+    """Treats the new tuple as a 3d vector and compares it to the average of
+    the previous 3 vectors. It then calculates the magnitude of the difference
+    in these and returns whether this magnitude is significant.
+
+    :param new_value: A 3d vector to compare
+    :type new_value: tuple[float]
+    :return: Whether there was a deviance in values
+    :rtype: bool
+    """
     old1, old2, old3 = self.history[-3:]
     average_old = ((o1 + o2 + o3) / 3 for o1, o2, o3 in zip(old1, old2, old3))
     difference = (n - o for n, o in zip(new_value, average_old))
@@ -67,7 +89,11 @@ class MetricController:
 
   def measure(self) -> MetricRecord:
     """Reads a new data point from the component and returns
-    it paird with metadata about the record"""
+    it paird with metadata about the record
+    
+    :return: A record containing the data measured
+    :rtype: MetricRecord
+    """
     try:
       value = self.measure_value()
     except Exception as err:

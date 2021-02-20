@@ -1,5 +1,5 @@
 Dummy Modules
-=========================
+=============
 
 The file ``src/test_modules.py`` contains classes that should only be used in testing.
 The modules **SenseHat** and **PiCamera** are built to be run on a RaspberryPi with the correct
