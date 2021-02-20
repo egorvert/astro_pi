@@ -38,6 +38,13 @@ class Controller:
   def begin_experiment(self, framerate: int = 20, measure_period: int = 5, duration: int = 178):
     """Handles the main loop of the experiment. Calls all components
     and directs their results to the output controller
+
+    :param framerate: The number of times to iterate the main loop per second, defaults to 20
+    :type framerate: int, optional
+    :param measure_period: The number of seconds to wait between measuring components, defaults to 5
+    :type measure_period: int, optional
+    :param duration: The number of minutes that the experiment should run for, defaults to 178
+    :type duration: int, optional
     """
     print('Ooga booga im in space')
     self.light_matrix.set_framerate(framerate)
