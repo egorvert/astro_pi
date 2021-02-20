@@ -4,7 +4,8 @@ from src.metric import MetricController
 
 
 class AccelerometerController(MetricController):
-  """Controller for methods and data related to the accelerometer
+  """Controller for methods and data related to the accelerometer.
+  Inherits from the ``MetricController`` class.
 
   :param con: Reference to main controller
   :type con: main.Controller
@@ -20,10 +21,9 @@ class AccelerometerController(MetricController):
     return (values['x'], values['y'], values['z'])
 
   def check_deviance(self, new_value: tuple) -> bool:
-    """
-    The function first compare the difference of each direction to find deviance
-    Next it checks the deviance of the vector as a whole
-    For now if the difference is over 25% of the average, then it is a deviant
+    """Compares the difference of each direction of the new value to find any deviance
+    and then checks the deviance of the vector as a whole.
+    For now if the difference is over 25% of the average, then it is a deviant.
     """
     if len(self.history) < 5:
       return False

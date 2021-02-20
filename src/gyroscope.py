@@ -3,7 +3,8 @@ from src.metric import MetricController
 
 class GyroscopeController(MetricController):
   """
-    Controller for methods and data related to the gyroscope
+    Controller for methods and data related to the gyroscope.
+    Inherits from the ``MetricController`` class.
     
     :param con: Reference to main controller
     :type con: main.Controller
