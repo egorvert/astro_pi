@@ -1,6 +1,6 @@
 # Astro Pi Competition Entry
 An entry piece for the [**Astro Pi _Mission Space Lab_**](https://astro-pi.org/mission-space-lab/) competition written in Python3. All code and functionality was developed by team _, consisting of
-Adam Heal, 
+[Adam Heal](https://github.com/AdamHeal), 
 [Gregor Maclaine](https://github.com/gregormaclaine), 
 [Stepan Mikoyan](https://github.com/stepstoglory), 
 [Ben Nason](https://github.com/NasonBen), 
